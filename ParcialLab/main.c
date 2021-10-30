@@ -7,19 +7,26 @@
 #include "Notebook.h"
 #include "Servicio.h"
 #include "Trabajo.h"
-
+#include "cliente.h"
 #define TAM_MAR 5
 #define TAM_TIPO 4
 #define TAM 10
 #define TAM_SER 4
 #define TAM_TRAB 10
+#define TAM_CLI 10
+
 int main()
 {
     char seguir='s';
     eNotebook lista[TAM];
     eTrabajo trabajos[TAM_TRAB];
+    eCliente clientes[TAM_CLI];
+
     int idNotebook=100;
     int idTrabajos=1;
+    int idCliente = 500;
+
+
 
     eMarca marcas[TAM_MAR] =
     {
@@ -51,7 +58,7 @@ int main()
 
     hardcodearNotebook(lista,TAM,5,&idNotebook);
     hardcodearTrabajos(trabajos,TAM,5,&idTrabajos);
-
+    hardcodearCliente(clientes,TAM,8,&idCliente);
     do
     {
         switch (menu())
@@ -67,7 +74,7 @@ int main()
             }
             break;
         case 2:
-            if(!modificarNotebook(lista,TAM,  tipoNote, TAM_TIPO, marcas,TAM_MAR))
+            if(!modificarNotebook(lista,TAM,  tipoNote, TAM_TIPO, marcas,TAM_MAR,clientes, TAM_CLI))
             {
                 printf("No se pudo realizar la modificacion");
             }
@@ -77,7 +84,7 @@ int main()
             }
             break;
         case 3:
-            if( bajaNotebook(lista,TAM,tipoNote,TAM_TIPO,marcas,TAM_MAR))
+            if( bajaNotebook(lista,TAM,tipoNote,TAM_TIPO,marcas,TAM_MAR,clientes,TAM_CLI))
             {
                 printf("No se pudo realizar la baja");
             }
@@ -87,7 +94,7 @@ int main()
             }
             break;
         case 4:
-            mostrarNotebooks(lista,TAM,marcas,tipoNote,TAM_TIPO,TAM_MAR);
+            mostrarNotebooks(lista,TAM,marcas,tipoNote,TAM_TIPO,TAM_MAR,clientes,TAM_CLI);
             system("pause");
             break;
         case 5:
@@ -116,7 +123,7 @@ int main()
             break;
         case 8:
             system("cls");
-            altaTrabajo(lista,TAM,servicios,TAM_SER,trabajos,TAM_TRAB,&idTrabajos,tipoNote,TAM_TIPO,marcas, TAM_MAR);
+            altaTrabajo(lista,TAM,servicios,TAM_SER,trabajos,TAM_TRAB,&idTrabajos,tipoNote,TAM_TIPO,marcas, TAM_MAR,clientes,TAM_CLI);
             system("pause");
             break;
         case 9:
@@ -125,6 +132,11 @@ int main()
             system("pause");
             break;
         case 10:
+            system("cls");
+            informes(lista,TAM,clientes,TAM_CLI,marcas,TAM_MAR, tipoNote, TAM_TIPO,trabajos,TAM_TRAB,servicios,TAM_SER);
+            system("pause");
+            break;
+        case 11:
             seguir ='n';
             break;
         default:

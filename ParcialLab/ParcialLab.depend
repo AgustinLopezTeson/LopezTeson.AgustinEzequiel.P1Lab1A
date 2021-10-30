@@ -96,7 +96,7 @@
 	"Notebook.h"
 	"Trabajo.h"
 
-1635509460 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\datawarehouse.c
+1635550556 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\datawarehouse.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -104,20 +104,23 @@
 	"dataWarehouse.h"
 	"Notebook.h"
 	"Trabajo.h"
+	"cliente.h"
 
-1635444106 c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\datawarehouse.h
+1635546007 c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\datawarehouse.h
 	"Notebook.h"
 	"Trabajo.h"
+	"cliente.h"
 
-1635509398 c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\notebook.h
+1635553971 c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\notebook.h
 	"TipoNote.h"
 	"Marca.h"
+	"cliente.h"
 
 1635364196 c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\tiponote.h
 
 1635363990 c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\marca.h
 
-1635444922 c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\trabajo.h
+1635551132 c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\trabajo.h
 	"Fecha.h"
 	"Servicio.h"
 
@@ -127,7 +130,7 @@
 
 1635350062 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\fecha.c
 
-1635450794 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\main.c
+1635551290 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -137,8 +140,21 @@
 	"Notebook.h"
 	"Servicio.h"
 	"Trabajo.h"
+	"cliente.h"
 
-1635364796 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\marca.c
+1635553798 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\marca.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"Fecha.h"
+	"Marca.h"
+	"TipoNote.h"
+	"Notebook.h"
+	"Servicio.h"
+	"Trabajo.h"
+
+1635553653 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\notebook.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -148,19 +164,9 @@
 	"Notebook.h"
 	"Servicio.h"
 	"Trabajo.h"
+	"cliente.h"
 
-1635509558 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\notebook.c
-	<stdio.h>
-	<stdlib.h>
-	<ctype.h>
-	"Fecha.h"
-	"Marca.h"
-	"TipoNote.h"
-	"Notebook.h"
-	"Servicio.h"
-	"Trabajo.h"
-
-1635438260 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\servicio.c
+1635552872 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\servicio.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -182,7 +188,18 @@
 	"Servicio.h"
 	"Trabajo.h"
 
-1635449988 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\trabajo.c
+1635554004 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"TipoNote.h"
+	"Notebook.h"
+	"Servicio.h"
+	"Trabajo.h"
+	"cliente.h"
+	"Fecha.h"
+
+1635550808 source:c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\cliente.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -192,4 +209,7 @@
 	"Notebook.h"
 	"Servicio.h"
 	"Trabajo.h"
+	"cliente.h"
+
+1635546870 c:\users\agust\desktop\lopezteson.agustinezequiel.p1lab1a\parciallab\cliente.h
 

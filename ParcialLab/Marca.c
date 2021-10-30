@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 #include "Fecha.h"
 #include "Marca.h"
 #include "TipoNote.h"
@@ -19,6 +20,7 @@ int mostrarMarcas( eMarca marcas[], int tam )
     int todoOk = 0;
     if (marcas != NULL && tam > 0 )
     {
+        system("cls");
         printf("      *** Listado de Marcas *** \n\n");
         printf("  Id         Descripcion\n");
         for (int i = 0; i < tam; i++)

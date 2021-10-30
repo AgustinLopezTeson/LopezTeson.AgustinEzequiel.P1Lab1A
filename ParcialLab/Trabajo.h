@@ -16,7 +16,9 @@ typedef struct{
 
 int menu();
 int menuDeModificaciones();
-int altaTrabajo(eNotebook lista[], int tam,eServicio servicios[],int tamSer,eTrabajo trabajos[],int tamTra,int* nextId,eTipo tipoNote[], int tamTipo, eMarca marcas[] , int tamMar);
+int menuInformes();
+int informes();
+int altaTrabajo(eNotebook lista[], int tam,eServicio servicios[],int tamSer,eTrabajo trabajos[],int tamTra,int* nextId,eTipo tipoNote[], int tamTipo, eMarca marcas[] , int tamMar,eCliente clientes[], int tamCli);
 int buscarLibreTrabajo(eTrabajo trabajos[], int tam);
 int validarFecha(int dia, int mes, int anio);
 int inicializarTrabajos(eTrabajo trabajos[], int tam);

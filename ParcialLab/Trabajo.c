@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "Fecha.h"
-#include "Marca.h"
 #include "TipoNote.h"
 #include "Notebook.h"
 #include "Servicio.h"
 #include "Trabajo.h"
-
+#include "cliente.h"
+#include "Fecha.h"
 
 #define TAM_MAR 5
 #define TAM_TIPO 4
@@ -30,13 +29,43 @@ int menu()
     printf("7- Listar servicios\n");
     printf("8- Alta Trabajo\n");
     printf("9- Listar Trabajos\n");
-    printf("10- Salir\n");
+    printf("10- Informes\n");
+    printf("11- Salir\n");
     printf("Ingrese opcion: ");
     fflush(stdin);
     scanf("%d", &opcion);
     printf("\n");
     return opcion;
 }
+
+int informes(eNotebook lista[],int tam,eCliente clientes[], int tamCli, eMarca marcas[], int tamMar, eTipo tipoNote[], int tamTipo,eTrabajo trabajos[],int tamTra,eServicio servicios, int tamServ){
+
+
+    switch(menuInformes()){
+
+    case 1 :
+    mostrarNotebookTipo(lista,tam,marcas,tipoNote,tamTipo,tamMar,clientes,tamCli);
+    break;
+    case 2 :
+    mostrarNoteMarca(lista,tam,marcas,tipoNote,tamTipo,tamMar,clientes,tamCli);
+    break;
+    case 3:
+
+    break;
+    case 4:
+    mostrarNoteMarca(lista,tam,marcas,tipoNote,tamTipo,tamMar,clientes,tamCli);
+    break;
+    case 5:
+    mostrarNotebookTipoMarca(lista,tam,marcas,tipoNote,tamTipo,tamMar,clientes,tamCli);
+    break;
+    case 6:
+    informarMarcasMasElegidas(lista,tam,marcas,tamMar);
+    break;
+    }
+
+
+}
+
 
 int menuDeModificaciones()
 {
@@ -53,6 +82,27 @@ int menuDeModificaciones()
 
     return opcion;
 }
+
+int menuInformes()
+{
+    int opcion;
+
+    printf("\n\n        *** Menu de Informes ***          \n");
+    printf("------------------------------------------------\n");
+    printf("    1- Buscar Notebook por tipo\n\n");
+    printf("    2- Buscar Notebook por marca\n\n");
+    printf("    3- Informar la Notebook mas barata\n\n");
+    printf("    4- Mostrar las notebook por marca\n\n");
+    printf("    5- Contar notebooks por tipo y marca  \n\n");
+    printf("    6- Mostrar por marca mas elegida \n\n");
+    printf("    7- Salir\n\n");
+
+    printf("Ingrese opcion: \n");
+    scanf("%d", &opcion);
+
+    return opcion;
+}
+
 
 int validarFecha(int dia, int mes, int anio)
 {
@@ -103,7 +153,7 @@ int buscarLibreTrabajo(eTrabajo trabajos[], int tam)
 }
 
 
-int altaTrabajo(eNotebook lista[], int tam,eServicio servicios[],int tamSer,eTrabajo trabajos[],int tamTra,  int* nextId,eTipo tipoNote[], int tamTipo, eMarca marcas[] , int tamMar)
+int altaTrabajo(eNotebook lista[], int tam,eServicio servicios[],int tamSer,eTrabajo trabajos[],int tamTra,  int* nextId,eTipo tipoNote[], int tamTipo, eMarca marcas[] , int tamMar,eCliente clientes[], int tamCli)
 {
     int todoOk = 0;
     int indice;
@@ -122,7 +172,7 @@ int altaTrabajo(eNotebook lista[], int tam,eServicio servicios[],int tamSer,eTra
         {
             auxTrabajo.id=*nextId;
             (*nextId)++;
-           mostrarNotebooks(lista,tam,marcas,tipoNote,tamTipo,tamMar);
+           mostrarNotebooks(lista,tam,marcas,tipoNote,tamTipo,tamMar,clientes,tamCli);
 
             printf("\n\nIngrese el ID de la Notebook a trabajar: ");
             scanf("%d", &auxTrabajo.idNote);

@@ -17,7 +17,7 @@ int mostrarServicios( eServicio servicios[], int tam )
     int todoOk = 0;
     if (servicios != NULL && tam > 0 )
     {
-        printf("      *** Listado de tipos de Servicios *** \n\n");
+        printf("      *** Listado de tipos de Servicios  *** \n\n");
         printf("  Id         Descripcion               Precio \n");
         for (int i = 0; i < tam; i++)
         {
