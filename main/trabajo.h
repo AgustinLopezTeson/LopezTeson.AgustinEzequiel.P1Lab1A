@@ -20,7 +20,7 @@ typedef struct
 }Trabajo;
 
 int menu();
-int altaTrabajo(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[], int tamCol,Trabajo trabajos[],int tamTra,Servicio servicios[],int tamSer,int* idTrabajos);
+int altaTrabajo(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[], int tamCol,Trabajo trabajos[],int tamTra,Servicio servicios[],int tamSer,int* idTrabajos,eCliente clientes[],int tamCli);
 int buscarLibreTrabajo(Trabajo trabajos[], int tam);
 int inicializarTrabajos(Trabajo trabajos[], int tam);
 int validarFecha(int dia, int mes, int anio);

@@ -7,6 +7,7 @@
 #include "fecha.h"
 #include "tipo.h"
 #include "mascota.h"
+#include "cliente.h"
 #include <ctype.h>
 
 #define TAM 20
@@ -43,7 +44,7 @@ int buscarLibreMascota(Mascota lista[], int tam)
 return indice;
 }
 
-int altaMascota(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[],int tamCol,int* pId)
+int altaMascota(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[],int tamCol,int* pId,eCliente clientes[],int tamCli)
 {
     int todoOk = 0;
     int indice;
@@ -61,8 +62,7 @@ int altaMascota(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[]
         {
             auxMascota.id=*pId;
 
-
-            printf("Ingrese el nombre: ");
+            printf("Ingrese el nombre de la mascota: ");
             fflush(stdin);
             gets(auxMascota.nombre);
 
@@ -121,7 +121,7 @@ int buscarMascotaId(Mascota lista[], int tam, int id)
     return indice;
 }
 
-int modificarMascota(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[],int tamCol)
+int modificarMascota(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[],int tamCol,eCliente clientes[],int tamCli)
 {
 
     int todoOk = 0;
@@ -136,7 +136,7 @@ int modificarMascota(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colo
         system("cls");
         printf("   *** Modificar Mascota *** \n\n");
 
-       mostrarMascotas(lista,tam,tipos,tamTipo,colores,tamCol);
+       mostrarMascotas(lista,tam,tipos,tamTipo,colores,tamCol,clientes,tamCli);
         printf("Ingrese id de la mascota: ");
         scanf("%d", &id);
 
@@ -152,7 +152,7 @@ int modificarMascota(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colo
         {
 
 
-          mostrarMascota(lista[indice],tipos,colores,tamTipo,tamCol);
+          mostrarMascota(lista[indice],tipos,colores,tamTipo,tamCol,clientes,tamCli);
 
 
             do
@@ -222,7 +222,7 @@ int modificarMascota(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colo
     return todoOk;
 
 }
-int mostrarMascotas(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[],int tamCol)
+int mostrarMascotas(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[],int tamCol,eCliente clientes[],int tamCli)
 {
     int todoOk = 0;
     int flag = 1;
@@ -230,15 +230,15 @@ int mostrarMascotas(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color color
     {
         system("cls");
         printf("       *** Listado de Mascotas ***      \n");
-        printf("------------------------------------------------------------------------------\n");
-        printf("   Id         Nombre           Tipo       Color        edad       Vacunado\n");
-        printf("-------------------------------------------------------------------------------\n");
+        printf("---------------------------------------------------------------------------------------------\n");
+        printf("   Id         Nombre           Tipo       Color        edad       Vacunado         Cliente\n");
+        printf("---------------------------------------------------------------------------------------------\n");
         for(int i = 0; i < tam; i++)
         {
             if(lista[i].isEmpty == 0)
             {
 
-                mostrarMascota(lista[i],tipos,colores,tamTipo,tamCol);
+                mostrarMascota(lista[i],tipos,colores,tamTipo,tamCol,clientes,tamCli);
                 flag = 0;
 
             }
@@ -254,7 +254,7 @@ int mostrarMascotas(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color color
 
     return todoOk;
 }
-int bajaMascota(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[],int tamCol)
+int bajaMascota(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[],int tamCol,eCliente clientes[],int tamCli)
 {
     int todoOk = 0;
     int id;
@@ -268,7 +268,7 @@ int bajaMascota(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[]
         printf("       *** Baja Mascota ***      \n");
         printf("---------------------------------------------\n");
 
-        mostrarMascotas(lista,tam,tipos,tamTipo,colores,tamCol);
+        mostrarMascotas(lista,tam,tipos,tamTipo,colores,tamCol,clientes,tamCli);
 
 
         printf("Ingrese el id de la mascota que quiere dar de baja: ");
@@ -283,7 +283,7 @@ int bajaMascota(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[]
         else
         {
             printf("\n\n");
-           mostrarMascota(lista[indice],tipos,colores,tamTipo,tamCol);
+           mostrarMascota(lista[indice],tipos,colores,tamTipo,tamCol,clientes,tamCli);
             printf("\n\n");
             printf("Confirma baja? (s para si): \n");
             fflush(stdin);
@@ -309,17 +309,20 @@ int bajaMascota(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[]
 
 }
 
-void mostrarMascota(Mascota unaMascota, Tipo tipos[], Color colores[], int tamTipo,int tamCol)
+void mostrarMascota(Mascota unaMascota, Tipo tipos[], Color colores[], int tamTipo,int tamCol,eCliente clientes[],int tamCli)
 {
     char descTipo[21];
     char descColor[21];
-
+    char descCliente[21];
 
 
     traerTipo(tipos,tamTipo,unaMascota.idTipo,descTipo);
     traerColor(colores,tamCol,unaMascota.idColor,descColor);
+    traerCliente(clientes,tamCli,unaMascota.idCliente,descCliente);
 
-    printf("%d  %10s   %10s     %10s   %10d     %10c\n",unaMascota.id,unaMascota.nombre,descTipo,descColor,unaMascota.edad,unaMascota.vacunados);
+
+
+    printf("%d  %10s   %10s     %10s   %10d     %10c     %s\n",unaMascota.id,unaMascota.nombre,descTipo,descColor,unaMascota.edad,unaMascota.vacunados,descCliente);
 
 }
 
@@ -353,6 +356,31 @@ int traerMascota(Mascota mascotas[],int tamMasc,int idMascota,char descMascota[]
             }
 
          }
+    }
+    return todoOk;
+}
+
+int ordenarMascota(Mascota lista[], int tam)
+{
+    int todoOk = 0;
+    Mascota auxMascota;
+    if(lista != NULL && tam > 0)
+    {
+        for(int i = 1 ; i < tam - 1; i++)
+        {
+            for(int j = i + 1; j < tam; j++)
+            {
+                if(lista[i].idTipo > lista[j].idTipo ||
+                        lista[i].idTipo == lista[j].idTipo)
+                {
+                    auxMascota = lista[i];
+                    lista[i] = lista[j];
+                    lista[j] = auxMascota;
+                }
+            }
+        }
+
+        todoOk = 1;
     }
     return todoOk;
 }

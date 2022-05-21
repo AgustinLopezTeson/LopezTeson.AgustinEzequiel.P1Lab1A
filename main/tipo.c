@@ -7,6 +7,7 @@
 #include "fecha.h"
 #include "tipo.h"
 #include "mascota.h"
+#include "cliente.h"
 
 #define TAM 20
 #define TAMTIPO 5

@@ -8,12 +8,14 @@
 #include "tipo.h"
 #include "mascota.h"
 #include "data.h"
+#include "cliente.h"
 
 #define TAM 20
 #define TAMTIPO 5
 #define TAMCOL 5
 #define TAMSER 3
 #define TAMTRA 20
+#define TAMCLI 10
 
 
 
@@ -23,6 +25,7 @@ char seguir='s';
 
 Mascota lista[TAM];
 Trabajo trabajos[TAMTRA];
+eCliente clientes[TAMCLI];
 int pId=10000;
 int idTrabajos=1;
 
@@ -55,8 +58,10 @@ Servicio servicios[TAMSER]=
 
 inicializarMascotas(lista,TAM);
 inicializarTrabajos(trabajos,TAMTRA);
+inicializarClientes(clientes,TAMCLI);
 hardcodearMascotas(lista,TAM,4,&pId);
 hardcodearTrabajos(trabajos,TAMTRA,4,&idTrabajos);
+hardcodearCliente(clientes,TAMCLI,4,&idCliente);
 
 
      do
@@ -64,7 +69,7 @@ hardcodearTrabajos(trabajos,TAMTRA,4,&idTrabajos);
         switch (menu())
         {
         case 1:
-            altaMascota(lista,TAM,tipos,TAMTIPO,colores,TAMCOL,&pId);
+            altaMascota(lista,TAM,tipos,TAMTIPO,colores,TAMCOL,&pId,clientes,TAMCLI);
             break;
         case 2:
             modificarMascota(lista,TAM,tipos,TAMTIPO,colores,TAMCOL);

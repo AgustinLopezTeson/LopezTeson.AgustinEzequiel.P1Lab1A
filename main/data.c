@@ -87,4 +87,3 @@ int hardcodearTrabajos(Trabajo trabajos[], int tamTra, int cant, int* pTrabajos)
 }
 
 
-

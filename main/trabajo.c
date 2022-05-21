@@ -7,6 +7,7 @@
 #include "fecha.h"
 #include "tipo.h"
 #include "mascota.h"
+#include "cliente.h"
 
 #define TAM 20
 #define TAMTIPO 5
@@ -37,7 +38,7 @@ int menu()
     return opcion;
 }
 
-int altaTrabajo(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[], int tamCol,Trabajo trabajos[],int tamTra,Servicio servicios[],int tamSer,int* idTrabajos)
+int altaTrabajo(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[], int tamCol,Trabajo trabajos[],int tamTra,Servicio servicios[],int tamSer,int* idTrabajos,eCliente clientes[],int tamCli)
 {
     int todoOk = 0;
     int indice;
@@ -57,7 +58,7 @@ int altaTrabajo(Mascota lista[],int tam,Tipo tipos[],int tamTipo,Color colores[]
             auxTrabajo.id=*idTrabajos;
             (*idTrabajos)++;
 
-            mostrarMascotas(lista,tam,tipos,tamTipo,colores,tamCol);
+            mostrarMascotas(lista,tam,tipos,tamTipo,colores,tamCol,clientes,tamCli);
             printf("\n\nIngrese el ID de la mascota: ");
             scanf("%d", &auxTrabajo.idMascota);
 
